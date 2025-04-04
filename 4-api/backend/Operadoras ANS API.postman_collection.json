@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "8b0d53e2-2bbc-4a8e-b7e6-e508c7dd2305",
+		"name": "Operadoras ANS API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23640181",
+		"_collection_link": "https://galactic-rocket-897498.postman.co/workspace/My-Workspace~5096e74d-803a-43f4-8c65-644ddb94e3d7/collection/23640181-8b0d53e2-2bbc-4a8e-b7e6-e508c7dd2305?action=share&source=collection_link&creator=23640181"
+	},
+	"item": [
+		{
+			"name": "getOperadorasPorModalidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5001/buscar?modalidade=Seguradora Especializada em Saúde",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "nome",
+							"value": "Seguradora Especializada em Saúde"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOperadoras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5001/buscar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"buscar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

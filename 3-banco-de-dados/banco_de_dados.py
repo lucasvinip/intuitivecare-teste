@@ -3,15 +3,24 @@ import requests
 import zipfile
 from bs4 import BeautifulSoup
 
-ANEXOS_DIR = "anexos"
+# Caminho do script atual
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Caminho da pasta-mãe (intuitivecare)
+PARENT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# Diretórios de destino
+ANEXOS_DIR = os.path.join(PARENT_DIR, "anexos")
 DATA_DIR = os.path.join(ANEXOS_DIR, "dados_ans")
 
+# URLs dos arquivos
 ZIP_URLS = [
     "https://dadosabertos.ans.gov.br/FTP/PDA/demonstracoes_contabeis/2023/",
     "https://dadosabertos.ans.gov.br/FTP/PDA/demonstracoes_contabeis/2024/",
 ]
 CSV_URL = "https://dadosabertos.ans.gov.br/FTP/PDA/operadoras_de_plano_de_saude_ativas/"
 
+# Verifica se já foi feito
 if os.path.exists(DATA_DIR):
     print('Pasta dados_ans já existe')
     exit()

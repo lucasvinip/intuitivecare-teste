@@ -3,8 +3,13 @@ import pandas as pd
 import zipfile
 import pdfplumber
 
-ANEXOS_DIR = 'anexos'
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+PARENT_DIR = os.path.dirname(SCRIPT_DIR)
+
+ANEXOS_DIR = os.path.join(PARENT_DIR, 'anexos')
 CSV_FILENAME = 'tabela_anexo_I_extraida.csv'
+CSV_PATH = os.path.join(ANEXOS_DIR, CSV_FILENAME)
 ZIP_FILENAME = os.path.join(ANEXOS_DIR, 'Teste_Lucas_Vinicius.zip')
 ZIP_ANEXO = os.path.join(ANEXOS_DIR, 'anexos_compactados.zip')
 
@@ -39,7 +44,6 @@ def extract_table_from_pdf(pdf_file):
     with pdfplumber.open(pdf_file) as pdf:
         for page in pdf.pages:
             table = page.extract_table()
-            
             if table:
                 for row in table:
                     if any(row):
@@ -57,7 +61,6 @@ def save_to_csv(data, output_file):
     
     data_frame = pd.DataFrame(data)
     data_frame = replace_abbreviations(data_frame)
-    
     data_frame.to_csv(output_file, index=False, encoding='utf-8-sig')
     print(f'Dados salvos em: {output_file}')
     
@@ -71,7 +74,7 @@ def compress_csv(csv_file, zip_file):
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zipf:
         zipf.write(csv_file, os.path.basename(csv_file))
     
-    print(f'Arquivo compactado como {zip_file}')    
+    print(f'Arquivo compactado como {zip_file}')
     os.remove(csv_file)
     print(f'Arquivo {csv_file} removido após a compactação.')
 
@@ -81,8 +84,7 @@ if pdf_path:
     extracted_data = extract_table_from_pdf(pdf_path)
     
     if extracted_data:
-        output_csv = os.path.join(ANEXOS_DIR, CSV_FILENAME)
-        csv_file = save_to_csv(extracted_data, output_csv)
+        csv_file = save_to_csv(extracted_data, CSV_PATH)
         if csv_file:
             compress_csv(csv_file, ZIP_FILENAME)
             os.remove(pdf_path)
