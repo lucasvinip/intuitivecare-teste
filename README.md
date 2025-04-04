@@ -40,16 +40,17 @@ Este projeto realiza um fluxo completo de obtenção, tratamento e visualizaçã
 > **Importante**: Altere o caminho dos arquivos de acordo com o seu sistema.
 
 **Exemplos**:
-```sql:
-dados_ans_operadores - 
+```sql
 LOAD DATA INFILE 'D:/seu-caminho/Relatorio_cadop.csv';
 
-dados_ans_despesas_operadores - 
 LOAD DATA INFILE 'D:\\seu-caminho\\anexos\\dados_ans\\1T2024\\1T2024.csv';
 LOAD DATA INFILE 'D:\\seu-caminho\\anexos\\dados_ans\\2T2024\\2T2024.csv';
 LOAD DATA INFILE 'D:\\seu-caminho\\anexos\\dados_ans\\3T2024\\3T2024.csv';
 LOAD DATA INFILE 'D:\\seu-caminho\\anexos\\dados_ans\\4T2024\\4T2024.csv';
 ```
+
+⚠️ **Observação importante:**
+Se ao executar o `LOAD DATA INFILE` ocorrer erro de permissão, verifique se o MySQL está com o carregamento de arquivos habilitado. Caso necessário, comente ou remova a linha `secure-file-priv` no arquivo `my.ini` do MySQL (normalmente localizado em `C:\ProgramData\MySQL\MySQL Server X.X\my.ini`), reinicie o serviço do MySQL e tente novamente.
 
 ---
 
@@ -106,6 +107,5 @@ npm --prefix ./4-api/frontend run serve
 
 ---
 
-|NOME                                                                                                                                                                                   |                                               GITHUB                                               |                                       FOTO                                        |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
-| <a href="https://github.com/lucasvinip"><img src="https://img.shields.io/badge/DESENVOLVEDOR-LUCAS%20VINICIUS%20SILVA-informational?style=for-the-badge&logo=appveyorlabelColor=222222"></a> |   <a href="https://github.com/lucasvinip"><img src="https://skillicons.dev/icons?i=github&theme="/></a>   | <img src="https://avatars.githubusercontent.com/u/110206119?v=4" height="50"></a> |
+Feito com 💙 por [Seu Nome]
+
