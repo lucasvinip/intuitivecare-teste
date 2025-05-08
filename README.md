@@ -107,5 +107,3 @@ npm --prefix ./4-api/frontend run serve
 
 ---
 
-Feito com 💙 por [Seu Nome]
-
