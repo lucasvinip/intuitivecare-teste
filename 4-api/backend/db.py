@@ -6,7 +6,7 @@ def get_db_connection():
         conn = MySQLdb.connect(
             host="127.0.0.1",
             user="root",
-            passwd="Jholly1577.564",
+            passwd="",
             db="dados_ans",
             cursorclass=DictCursor
         )
